@@ -1,0 +1,358 @@
+{% extends '_base.html' %}
+
+{% block library_css %}
+<link href="css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link href="css/styles.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/polio.css">
+<link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
+        
+{% endblock library_css %}
+
+{% block css %}
+    <style>
+        #next_article {
+            float: right;
+        }
+        
+        .nav_wrapper_title {
+            padding-top: 1%;
+        }
+        
+        #videowrapper {
+            height: 100%;
+        }
+
+       /* progress {*/
+     /*     position:fixed;
+          left:0;
+          top:0;
+          
+          width:100%;
+          height:10px;*/
+          
+          /*reset the appearance*/
+        /*  -webkit-appearance:none;
+          -moz-appearance:none;
+          appearance:none;*/
+          
+          /*get rid of the default border in Firefox/Opera */
+        /*  border:none;*/
+          
+          /*progress bar container for Firefox/IE10+ */
+         /* background-color:transparent;*/
+          
+          /*progress bar value for IE10+ */
+        /*  color:#ff4500;
+        }
+*/
+        /*for Firfox*/
+    /*    progress::-webkit-progress-bar {
+          background-color:transparent;
+        }
+
+        progress::-webkit-progress-value {
+          background-color:#ff4500;
+        }
+
+        progress::-moz-progress-bar {
+          background-color:#ff4500;
+        }*/
+
+        #scrolldown {
+            color:white;
+            float:right;
+            margin-right:5%;
+        }
+
+        #photo1{
+            background: url(img/polio.jpeg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        #photo2 {
+            background: url(img/polio.jpeg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .imagescroll {
+          height: 100%;
+        }
+
+        #transition {
+          width: 100%;
+        }
+
+        .fluid-container {
+          width: 100%;
+          left:0;
+          right:0;
+        }
+
+        .container {
+          width: 100%;
+        }
+
+        #button {
+  margin-left: 44%;
+  padding: 1% 1% 1% 1%;
+  text-align: center;
+  font-size: 0.8em;
+  border: 3px solid #F9F7F6;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  text-transform: uppercase;
+  color: #404D5B;
+}
+#button.active {
+  border: 3px solid #404D5B;
+}
+#button:hover {
+  background: #404D5B;
+  color: #F9F7F6;
+}
+.content {
+  width: 70%;
+  height: 300px;
+  position: relative;
+  margin: 20px auto;
+  overflow: hidden;
+}
+.content .tab {
+  overflow: hidden;
+  padding: 1em 2em;
+  height: 300px;
+  font-size: 1em;
+  line-height: 1.4;
+}
+.content .tab1 {
+  background: #34495E;
+  color: #B4B4B4;
+}
+.content .tab2 {
+  background: #E74C3C;
+  color: #fff;
+}
+.content .tab3 {
+  background: #34495E;
+  color: #B4B4B4;
+}
+.content .tab4 {
+  background: #E74C3C;
+  color: #fff;
+}
+.slide-left.ng-enter,
+.slide-left.ng-leave {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.slide-left.ng-enter.ng-enter-active {
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  -o-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  transform: translateX(0px);
+}
+.slide-left.ng-leave {
+  z-index: 100;
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  -o-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  transform: translateX(0px);
+}
+.slide-left.ng-leave-active {
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+#wrapcaption {
+  font-size:0.35em;
+  text-align: left;
+}
+
+figcaption {
+  font-size:0.4em;
+}
+
+/*#videobutton {
+  margin-left: 44%;
+  padding: 1% 1% 1% 1%;
+  text-align: center;
+  font-size: 0.6em;
+  border: 3px solid #404D5B;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  text-transform: uppercase;
+  color: #404D5B;
+}
+
+#videobutton.active {
+  border: 3px solid #404D5B;
+}
+#videobutton:hover {
+  background: #404D5B;
+  color: #F9F7F6;
+}*/
+    </style>
+{% endblock %}
+
+{% block content %}
+<!--<article id="poliolanding">-->
+<section id="main_page" class="container" style="width:100%;">
+    <div class="fullscreen-bg">
+        <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+<!--        <source src="video/loop.webm" type="video/webm">-->
+        <source src="video/loop.ogv" type="video/ogg">
+        <source src="video/loop.mp4" type="video/mp4">
+        <source src="video/loop.ogv" type="video/ogg">
+    </video>
+    </div>
+
+    <div class="row" style="height:100%;margin-bottom:20%;">
+        <div class="col-md-12" style="height:100%;">
+            <h1>{{thai_headline}}</h1>
+             <span id="sound" style="color:white;float:left;margin-left:50%;margin-right:5%;text-align:center;"><i class="fa fa-headphones fa-2x"></i><p style="color:white;font-size:1.3em;">click to hear the bats</p></span>
+            <a id="scrolldown" href="#content"><i class="fa fa-arrow-circle-down fa-5x"></i></a>
+        </div>
+    </div>
+ </section>
+    
+<section id="content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+    <p id="byline" style="font-size: 1.2em;
+    font-style: italic;border-left:rgb(255, 69, 0) solid 10px;padding-left:1%;">Story by Adriana Cargill and Lydia Randall<br>Video by Lydia Randall and Adriana Cargill<br>Produced by Jin Wu</p>
+      </div>
+    </div>
+
+    <div class="container" id="text">
+
+    {% for row in thai_content %}
+    {% include "%s.html"|format(row.template) ignore missing %}
+    {% endfor %}
+  </div>
+  <a href="#0" class="cd-top">Top</a>
+</section>
+
+<!-- <progress value="0"></progress> -->
+
+{% endblock content %}
+
+{% block library_scripts %}
+    <script src="js/modernizr.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+{% endblock library_scripts %}
+
+
+{% block scripts %}
+    <script>
+   $(document).on('ready',function() {
+
+    $(window).scroll(
+    {
+        previousTop: 0
+    }, 
+    function () {
+    var currentTop = $(window).scrollTop();
+    if (currentTop < this.previousTop) {
+        $(".navbar").show();
+    } else {
+        $(".navbar").hide();
+    }
+    this.previousTop = currentTop;
+});
+
+       $(window).scroll(
+    {
+        previousTop: 10
+    }, 
+    function () {
+    var currentTop = $(window).scrollTop();
+    if (currentTop < this.previousTop) {
+        $("#scrollinstruction").show();
+    } else {
+        $("#scrollinstruction").hide();
+    }
+    this.previousTop = currentTop;
+});
+
+    $("#sound").click(function() {
+        if ($("video").prop('muted')) {
+            $("video").prop('muted',false);
+        } else {
+            $("video").prop('muted',true);
+        }
+    });
+
+    $(function() {
+             cbpFixedScrollLayout.init();
+            });
+
+
+    $("#sidebar_trigger").click(function() {
+      $("#sidebar").hide();
+    });
+
+});
+
+   jQuery(document).ready(function($){
+  // browser window scroll (in pixels) after which the "back to top" link is shown
+  var offset = 300,
+    //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+    offset_opacity = 1200,
+    //duration of the top scrolling animation (in ms)
+    scroll_top_duration = 700,
+    //grab the "back to top" link
+    $back_to_top = $('.cd-top');
+
+  //hide or show the "back to top" link
+  $(window).scroll(function(){
+    ( $(this).scrollTop() > offset ) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
+    if( $(this).scrollTop() > offset_opacity ) { 
+      $back_to_top.addClass('cd-fade-out');
+    }
+  });
+
+  //smooth scroll to top
+  $back_to_top.on('click', function(event){
+    event.preventDefault();
+    $('body,html').animate({
+      scrollTop: 0 ,
+      }, scroll_top_duration
+    );
+  });
+
+});
+
+
+  </script>
+
+{% endblock scripts %}

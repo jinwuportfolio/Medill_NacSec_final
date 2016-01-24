@@ -1,0 +1,276 @@
+{% extends '_base.html' %}
+
+{% block library_css %}
+<link href="css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link href="css/styles.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/polio.css">
+<link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
+<link href='//cdn.knightlab.com/libs/soundcite/latest/css/player.css' rel='stylesheet' type='text/css'>
+        
+{% endblock library_css %}
+
+{% block css %}
+    <style>
+        #next_article {
+            float: right;
+        }
+        
+        .nav_wrapper_title {
+            padding-top: 1%;
+        }
+        
+        #videowrapper {
+            height: 100%;
+        }
+
+        #main_page {
+          background-image: url("img/gdd/top.jpg");
+          no-repeat center center; 
+          -webkit-background-size: cover; 
+          -moz-background-size: cover; 
+          -o-background-size: cover; 
+          background-size: cover;  
+          height: 100%; 
+        }
+
+       /* progress {*/
+     /*     position:fixed;
+          left:0;
+          top:0;
+          
+          width:100%;
+          height:10px;*/
+          
+          /*reset the appearance*/
+        /*  -webkit-appearance:none;
+          -moz-appearance:none;
+          appearance:none;*/
+          
+          /*get rid of the default border in Firefox/Opera */
+        /*  border:none;*/
+          
+          /*progress bar container for Firefox/IE10+ */
+         /* background-color:transparent;*/
+          
+          /*progress bar value for IE10+ */
+        /*  color:#ff4500;
+        }
+*/
+        /*for Firfox*/
+    /*    progress::-webkit-progress-bar {
+          background-color:transparent;
+        }
+
+        progress::-webkit-progress-value {
+          background-color:#ff4500;
+        }
+
+        progress::-moz-progress-bar {
+          background-color:#ff4500;
+        }*/
+
+        #scrolldown {
+            color:white;
+            float:right;
+            margin-right:5%;
+        }
+
+        #photo1{
+            background: url(img/polio.jpeg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        #photo2 {
+            background: url(img/polio.jpeg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .imagescroll {
+          height: 100%;
+        }
+
+        #transition {
+          width: 100%;
+        }
+
+        .fluid-container {
+          width: 100%;
+          left:0;
+          right:0;
+        }
+
+        .container {
+          width: 100%;
+        }
+
+      
+#wrapcaption {
+  font-size:0.35em;
+  text-align: left;
+}
+
+figcaption {
+  font-size:0.4em;
+}
+
+    </style>
+{% endblock %}
+
+{% block content %}
+<!--<article id="poliolanding">-->
+<section id="main_page" class="container" style="width:100%;">
+
+    <div class="row" style="height:100%;margin-bottom:20%;">
+        <div class="col-md-12" style="height:100%;">
+            <h1>{{gdd_headline}}</h1>
+            <h2 style="color:white;">{{gdd_teaser}}</h2>
+            <a id="scrolldown" href="#content"><i class="fa fa-arrow-circle-down fa-5x"></i></a>
+        </div>
+    </div>
+</section>
+    
+<section id="content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+    <p id="byline" style="font-size: 1.2em;
+    font-style: italic;border-left:rgb(255, 69, 0) solid 10px;padding-left:1%;">Story by Medill National Security Reporting Project<br>Produced by Jin Wu</p>
+      </div>
+    </div>
+    <div class="container" id="text">
+
+    {% for row in gdd_content %}
+    {% include "%s.html"|format(row.template) ignore missing %}
+    {% endfor %}
+  </div>
+
+  <a href="#0" class="cd-top">Top</a>
+</section>
+
+<!-- <progress value="0"></progress> -->
+
+{% endblock content %}
+
+{% block library_scripts %}
+    <script src="js/modernizr.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+     <script type="text/javascript" src="js/d3.v3.min.js"></script>
+     <script src="js/gdd_bar.js"></script>
+     <script src="//assets.documentcloud.org/viewer/loader.js"></script>
+     <script type="text/javascript" src="js/waypoints.min.js"></script>
+
+
+{% endblock library_scripts %}
+
+
+{% block scripts %}
+    <script>
+    jQuery(document).ready(function($){
+  // browser window scroll (in pixels) after which the "back to top" link is shown
+  var offset = 300,
+    //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+    offset_opacity = 1200,
+    //duration of the top scrolling animation (in ms)
+    scroll_top_duration = 700,
+    //grab the "back to top" link
+    $back_to_top = $('.cd-top');
+
+  //hide or show the "back to top" link
+  $(window).scroll(function(){
+    ( $(this).scrollTop() > offset ) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
+    if( $(this).scrollTop() > offset_opacity ) { 
+      $back_to_top.addClass('cd-fade-out');
+    }
+  });
+
+  //smooth scroll to top
+  $back_to_top.on('click', function(event){
+    event.preventDefault();
+    $('body,html').animate({
+      scrollTop: 0 ,
+      }, scroll_top_duration
+    );
+  });
+
+});
+
+    $(document).on('ready',function() {
+
+        var winHeight = $(window).height(),
+            docHeight = $(document).height(),
+            progressBar = $('progress'),
+            max, value;
+
+  /*set the max scrollable area */
+        max = docHeight - winHeight;
+        progressBar.attr('max',max);
+
+    $(document).on('scroll',function() {
+        value = $(window).scrollTop();
+        progressBar.attr('value',value);
+    });
+
+    $(window).on('resize',function() {
+        winHeight = $(window).height(),
+        docHeight = $(document).height();
+  
+        max = docHeight - winHeight;
+        progressBar.attr('max',max);
+ 
+        value = $(window).scroppTop();
+        progressBar.attr('value',value);
+    });
+
+    $(window).scroll(
+    {
+        previousTop: 0
+    }, 
+    function () {
+    var currentTop = $(window).scrollTop();
+    if (currentTop < this.previousTop) {
+        $(".navbar").show();
+    } else {
+        $(".navbar").hide();
+    }
+    this.previousTop = currentTop;
+});
+
+    $("#sound").click( function() {
+        if ($("video").prop('muted')) {
+            $("video").prop('muted',false);
+        } else {
+            $("video").prop('muted',true);
+        }
+    });
+
+    $(function() {
+             cbpFixedScrollLayout.init();
+            });
+
+  
+  });
+
+DV.load("https://www.documentcloud.org/documents/2430184-sr244long.js", {
+  width: 400,
+    height: 600,
+    sidebar: false,
+    container: "#DV-viewer-2430184-sr244long"
+  });
+
+
+  </script>
+
+{% endblock scripts %}
+

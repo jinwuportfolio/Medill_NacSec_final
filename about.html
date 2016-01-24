@@ -1,0 +1,136 @@
+{% extends '_base.html' %}
+
+{% block library_css %}
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="css/styles.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/about.css">
+ <!-- Resource style -->
+{% endblock library_css %}
+
+{% block css %}
+	<style>
+	#partnerlogo {
+		width: 90%;
+		border-radius: 0;
+		margin-left: 5%;
+	}
+
+	.partner p {
+		font-size: 1.05em;
+	}
+
+	img {
+		width: 18%;
+		border-radius: 30%;
+	}
+
+	footer {
+		text-align:center;
+		color:white;
+		padding-bottom: 3%;
+		padding-top: 3%;
+		opacity: 0.7;
+	}
+
+	#introduction {
+		color: black 0.7;
+		margin-top: 5%;
+		margin-bottom: 5%;
+	}
+
+	#introduction p {
+		font-size: 1.1em;
+	}
+
+	header p {
+		padding-top: 1%;
+	}
+    
+    .cd-item a:hover b {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transition: opacity 0.3s 0.1s, -webkit-transform 0.3s 0.1s;
+    -moz-transition: opacity 0.3s 0.1s, -moz-transform 0.3s 0.1s;
+    transition: opacity 0.3s 0.1s, transform 0.3s 0.1s;
+  }
+    
+    .cd-item a:hover h2, .cd-item a:hover p {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transition: -webkit-transform 0.3s 0s;
+    -moz-transition: -moz-transform 0.3s 0s;
+    transition: transform 0.3s 0s;
+  }
+    
+
+	
+	</style>
+{% endblock %}
+
+
+{% block content %}
+	<div id="introduction" class="col-md-8 col-md-offset-2">
+		<p>This project was done under the auspices of the National Security Journalism Initiative, which is part of Northwestern University’s Medill School of Journalism, Media, Integrated Media Communications.</p>
+		<p>Medill, a national leader in journalism education for decades, has expanded that leadership role to include national security journalism education with the assistance of generous Robert R. McCormick Foundation grants.</p>
+		<p>As part of that effort, the school created the NSJ Initiative in January 2009 to provide journalists-in-training and working journalists with the knowledge and skills necessary to report accurately and innovatively on events and issues related to defense, security and civil liberties.</p>
+		<p>The NSJ initiative’s National Security Reporting Project, launched in 2010, provides scholarships to up to 10 Medill graduate students a year who have completed or are near completion of the master’s program. They spend three months reporting on a topic of national security interest, and present their investigative work in innovative ways across all digital platforms in collaboration with professional media partners.</p>
+		<p>The first effort, on the national security implications of climate change, won a prestigious national award from the Online News Association. Subsequent projects focused on the challenges facing the military reserve component, energy security, global food aid boondoggles and the lethal legacy left by U.S. land mines and cluster munitions around the world.</p>
+	</div>
+
+	<div class="partner">
+		<div class="col-md-4 col-md-offset-1">
+			<img id="partnerlogo" src="img/about/Vice_News.jpg">
+			<p>The Medill National Security Reporting Project, in collaboration with VICE News, will be rolling out the results of our comprehensive series in the coming days and weeks. Follow the Perfect Storm series on VICE News here.</p>
+		</div>
+	</div>
+
+	<div class="partner row">
+		<div class="col-md-4 col-md-offset-2">
+			<img id="partnerlogo" src="img/about/McCormickFoundation.png">
+			<p>Medill, a national leader in journalism education for decades, has expanded that leadership role to include national security journalism education with the generous assistance of Robert R. McCormick Foundation grants.</p>
+		</div>
+	</div>
+
+	<main class="cd-main">
+		<header>
+		<!-- <div id="section_title"> -->
+			<h1>REPORTERS</h1>
+			<p>A group of journalists bringing stories back from the field</p>
+		<!-- </div> -->
+		</header>
+
+		<ul class="cd-gallery">
+			{% for row in reporter %}
+    		{% include "%s.html"|format(row.template) ignore missing %}
+    		{% endfor %}
+		</ul> <!-- .cd-gallery -->
+	</main> <!-- .cd-main -->
+
+	<main class="cd-main">
+		<header>
+			<h1>PRODUCERS | EDITORS</h1>
+			<p>A group of people who make stories better in D.C.</p>
+		</header>
+
+		<ul class="cd-gallery">
+			{% for row in producer_editor %}
+    		{% include "%s.html"|format(row.template) ignore missing %}
+    		{% endfor %}
+		</ul> <!-- .cd-gallery -->
+	</main> <!-- .cd-main -->
+
+{% endblock content %}
+
+{% block js %}
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+{% endblock js %}
+
+

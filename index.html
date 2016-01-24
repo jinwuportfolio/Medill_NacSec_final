@@ -1,0 +1,197 @@
+{% extends "_base.html" %}
+
+{% block library_css %}
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link href="css/styles.css" rel="stylesheet">
+<link href="css/animate.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
+<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+<!-- <link rel="stylesheet" type="text/css" href="css/landing.css" /> -->
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Domine' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+{% endblock library_css %}
+
+{% block css %}
+	<style>
+    #landing_byline {
+      color: white;
+    }
+    
+		#title {
+			font-size: 4.5em;
+			color: white;
+			font-weight: 700;
+		}
+
+		#teaser {
+    color: white;
+    font-size: 1.2em;
+    font-family:'Lora', serif;
+}
+
+		#summary {
+			margin-top: 3%;
+		}
+
+		#summary h1 {
+			color: black;
+			text-align: center;
+		}
+
+		#summary p {
+			font-size: 1.5em;
+		}
+        
+        .cd-single-project {
+            width: 33.3333%;
+            float: left;
+            text-align: center;
+            height: 100vh;
+            background-color: antiquewhite;
+            transition: opacity .8s ease-out;
+    -moz-transition: opacity .8s ease-out;
+    -webkit-transition: opacity .8s ease-out;
+    -o-transition: opacity .8s ease-out;
+        }
+        
+        .projects-container .cd-single-project:hover {
+            background-image: url("../img/vaccinator.jpg");
+            color: white;
+            transition: opacity .8s ease-in-out;
+    -moz-transition: opacity .8s ease-in-out;
+    -webkit-transition: opacity .8s ease-in-out;
+        }
+        
+        .cd-title {
+            margin-top: 70%;
+        }
+        
+        .cd-title h2 {
+            font-size: 2em;
+        }
+        
+    ul.share-buttons{
+  list-style: none;
+  padding: 0;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+     
+	</style>
+{% endblock %}
+
+{% block content %}
+ <header id="home">
+          
+          <section class="hero" id="hero">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center inner">
+                  <h1 id="title" class="animated fadeInDown">THE PERFECT STORM</h1>
+                  <p id="teaser" class="animated fadeInUp delay-05s">{{ slogan }}</p>
+              </br>
+                  <p id="landing_byline">{{ credit|safe }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                  <a href="#introduction" class="learn-more-btn">EXPLORE</a>
+                </div>
+              </div>
+            </div>
+          </section>
+</header>
+
+<article id="introduction">
+  <div id="introduction_content" class="col-md-8 col-md-offset-2">
+    <p>Our team of graduate students from the Medill National Security Reporting Project, in collaboration with VICE News, spent three months reporting on whether public health officials around the world are doing enough to prepare for the next outbreak of a deadly infectious disease that could kill thousands, or even millions, of people.</p>
+    <p>We traveled to teeming refugee communities in Karachi, Pakistan to chronicle the alarming resurgence of polio, and to the bat caves of Tao Pun, Thailand, where officials fear the next Ebola-type virus may be incubating. We traveled to Atlanta to report on the premiere U.S. global disease detection program at the U.S. Centers for Disease Control, and interviewed more than 80 experts and health officials on several continents.</p>
+    <p>This series is being published with the generous assistance of Robert R. McCormick Foundation grants.</p>
+      <p>The following stories detail our findings, using text, video and interactive multimedia.</p>
+  </div>
+
+<div class="row">
+  <ul class="story_introduction">
+            <li>
+              <ul>
+                <li>
+                  <a href="polio.html"><img src="img/index/polio.jpg" alt="thumbnail">
+                  <p>Pakistan's Polio War</p></a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <ul>
+                <li>
+                  <a href="thailand.html"><img src="img/index/thailand.jpg" alt="thumbnail">
+                  <p>Predicting the Perfect Storm</p></a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <ul>
+                <li>
+                  <a href="gdd.html"><img src="img/index/gdd.jpg" alt="thumbnail">
+                  <p>Gaps in the System</p></a>
+                </li>
+              </ul>
+            </li>
+</ul>
+</div>
+
+  
+</article>
+
+{% endblock content %}
+
+{% block library_scripts %}
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	 <script src="js/bootstrap.min.js"></script>
+     <script src="js/modernizr.js"></script>
+    <script src="js/landing.js"></script>
+{% endblock library_scripts %}
+
+{% block scripts %}
+    <script>
+    $(window).scroll(
+    {
+        previousTop: 0
+    }, 
+    function () {
+    var currentTop = $(window).scrollTop();
+    if (currentTop < this.previousTop) {
+        $(".navbar").show();
+    } else {
+        $(".navbar").hide();
+    }
+    this.previousTop = currentTop;
+});
+
+
+    $(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+View Demo
+        </script>
+    
+{% endblock %}
+

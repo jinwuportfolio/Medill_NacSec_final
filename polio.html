@@ -1,0 +1,176 @@
+{% extends '_base.html' %}
+
+{% block library_css %}
+<link href="css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link href="css/styles.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/polio.css">
+<link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
+        
+{% endblock library_css %}
+
+{% block css %}
+	<style>
+         #next_article {
+            float: right;
+        }
+        
+        .nav_wrapper_title {
+            padding-top: 1%;
+        }
+        
+        #videowrapper {
+            height: 100%;
+        }
+
+        #scrolldown {
+            color:white;
+            float:right;
+            margin-right:5%;
+        }
+
+        .fluid-container {
+          width: 100%;
+          left:0;
+          right:0;
+        }
+
+        h1 {
+          color: white;
+          text-shadow: 2px 2px black;
+        }
+
+	</style>
+{% endblock %}
+
+{% block content %}
+<!--<article id="poliolanding">-->
+<section id="main_page" class="container" style="width:100%;">
+    <div class="fullscreen-bg">
+        <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+<!--        <source src="video/loop.webm" type="video/webm">-->
+<!--         <source src="video/loop.ogv" type="video/ogg">
+ -->        <source src="video/polio.mp4" type="video/mp4">
+<!--         <source src="video/loop.ogv" type="video/ogg">
+ -->    </video>
+    </div>
+
+    <div class="row" style="height:100%;margin-bottom:20%;">
+        <div class="col-md-12" style="height:100%;">
+            <h1>{{polio_headline}}</h1>
+            <h2 style="color:white;">{{polio_teaser}}</h2>
+            <a id="scrolldown" href="#content"><i class="fa fa-arrow-circle-down fa-5x"></i></a>
+        </div>
+    </div>
+ </section>
+ 	
+<section id="content">
+  <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+    <p id="byline" style="font-size: 1.2em;
+    font-style: italic;border-left:rgb(255, 69, 0) solid 10px;padding-left:1%;">Story by Ezra Kaplan<br>Video by Aditya Prakash<br>Produced by Jin Wu</p>
+      </div>
+    </div>
+
+ 	<div class="container" id="text">
+
+    {% for row in polio_content %}
+    {% include "%s.html"|format(row.template) ignore missing %}
+    {% endfor %}
+  </div>
+
+  <a href="#0" class="cd-top">Top</a>
+</section>
+
+
+
+{% endblock content %}
+
+{% block library_scripts %}
+ 	<script src="js/modernizr.js"></script>
+ 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/d3.v3.min.js"></script>
+
+{% endblock library_scripts %}
+
+
+{% block scripts %}
+    <script>
+
+  //   function show(shown, hidden) {
+  //     document.getElementById(shown).style.display='block';
+  //     document.getElementById(shown).style.visibility='visible';
+  //     document.getElementById(hidden).style.display='none';
+  //     document.getElementById(hidden).style.visibility='hidden';
+  //     return false;
+  // };
+
+  	// $('nav_items a').click(function(event){
+   //  $('section.active').removeClass('active');
+   //  $('section.' + $(this).data('section')).addClass('active');
+   //  event.preventDefault();
+// });
+    $(document).ready(function() {
+      
+    $(window).scroll(
+    {
+        previousTop: 0
+    }, 
+    function () {
+    var currentTop = $(window).scrollTop();
+    if (currentTop < this.previousTop) {
+        $(".navbar").show();
+    } else {
+        $(".navbar").hide();
+    }
+    this.previousTop = currentTop;
+});
+    
+       
+    $(window).scroll(
+    {
+        previousTop: 10
+    }, 
+    function () {
+    var currentTop = $(window).scrollTop();
+    if (currentTop < this.previousTop) {
+        $("#scrollinstruction").show();
+    } else {
+        $("#scrollinstruction").hide();
+    }
+    this.previousTop = currentTop;
+});
+
+    var offset = 300,
+    //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+    offset_opacity = 1200,
+    //duration of the top scrolling animation (in ms)
+    scroll_top_duration = 700,
+    //grab the "back to top" link
+    $back_to_top = $('.cd-top');
+
+  //hide or show the "back to top" link
+  $(window).scroll(function(){
+    ( $(this).scrollTop() > offset ) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
+    if( $(this).scrollTop() > offset_opacity ) { 
+      $back_to_top.addClass('cd-fade-out');
+    }
+  });
+
+  //smooth scroll to top
+  $back_to_top.on('click', function(event){
+    event.preventDefault();
+    $('body,html').animate({
+      scrollTop: 0 ,
+      }, scroll_top_duration
+    );
+  });
+});
+    
+
+
+  </script>
+
+{% endblock scripts %}
