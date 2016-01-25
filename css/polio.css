@@ -96,7 +96,7 @@ font-weight: 400;
 }
 
 figcaption {
-    font-size: 0.5em;
+    font-size: 0.4em;
    font-family: 'Droid Sans', sans-serif;
    font-weight: 200;
    text-align: center;
@@ -301,11 +301,24 @@ html, body, .container,.imagescroll, .imagescroll section {
     color: white;
 }
 
+#sidebar_trigger {
+    background-color: #ff4500;
+    color: white;
+    margin-left: 25%;
+    font-size: 0.8em;
+    margin-bottom: 3%;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: none;
+}
+
 #sidebar_content {
     background-color: #D3D3D3;
     padding-left: 3%;
     padding-right: 3%;
-}
+/*    display: none;
+*/}
 
 #footer {
     height: 50px;
@@ -373,4 +386,13 @@ html, body, .container,.imagescroll, .imagescroll section {
 #virus_sharing {
     text-align: center;
     font-size: 0.8em;
+}
+
+#next_article a{
+    color: #ff4500;
+}
+
+#next_article a:hover {
+    color: white;
+    background-color: #ff4500;
 }

@@ -78,8 +78,8 @@
 
 {% block content %}
 	<div id="introduction" class="col-md-8 col-md-offset-2">
-		<p>This project was done under the auspices of the National Security Journalism Initiative, which is part of Northwestern University’s Medill School of Journalism, Media, Integrated Media Communications.</p>
-		<p>Medill, a national leader in journalism education for decades, has expanded that leadership role to include national security journalism education with the assistance of generous Robert R. McCormick Foundation grants.</p>
+		<p>This project was done under the auspices of the <a href="http://nationalsecurityzone.medill.northwestern.edu/" target="_blank">National Security Journalism Initiative</a>, which is part of Northwestern University’s <a href="http://www.medill.northwestern.edu/" target="_blank">Medill School of Journalism, Media, Integrated Media Communications</a>.</p>
+		<p>Medill, a national leader in journalism education for decades, has expanded that leadership role to include national security journalism education with the assistance of generous <a href="http://www.mccormickfoundation.org/" target="_blank">Robert R. McCormick Foundation</a> grants.</p>
 		<p>As part of that effort, the school created the NSJ Initiative in January 2009 to provide journalists-in-training and working journalists with the knowledge and skills necessary to report accurately and innovatively on events and issues related to defense, security and civil liberties.</p>
 		<p>The NSJ initiative’s National Security Reporting Project, launched in 2010, provides scholarships to up to 10 Medill graduate students a year who have completed or are near completion of the master’s program. They spend three months reporting on a topic of national security interest, and present their investigative work in innovative ways across all digital platforms in collaboration with professional media partners.</p>
 		<p>The first effort, on the national security implications of climate change, won a prestigious national award from the Online News Association. Subsequent projects focused on the challenges facing the military reserve component, energy security, global food aid boondoggles and the lethal legacy left by U.S. land mines and cluster munitions around the world.</p>
@@ -109,7 +109,7 @@
 
 		<ul class="cd-gallery">
 			{% for row in reporter %}
-    		{% include "%s.html"|format(row.template) ignore missing %}
+    		{% include "_%s.html"|format(row.template) ignore missing %}
     		{% endfor %}
 		</ul> <!-- .cd-gallery -->
 	</main> <!-- .cd-main -->
@@ -122,7 +122,7 @@
 
 		<ul class="cd-gallery">
 			{% for row in producer_editor %}
-    		{% include "%s.html"|format(row.template) ignore missing %}
+    		{% include "_%s.html"|format(row.template) ignore missing %}
     		{% endfor %}
 		</ul> <!-- .cd-gallery -->
 	</main> <!-- .cd-main -->

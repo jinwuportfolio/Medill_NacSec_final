@@ -205,9 +205,9 @@ Main content
 }
 .cd-item p {
   line-height: 1.2;
-  font-size: 1.4rem;
-  opacity: 0.6;
-  /*padding: 1em 0;*/
+  font-size: 1.2rem;
+  opacity: 1;
+  padding: 1em 0;
 }
 .cd-item b {
   display: inline-block;
@@ -231,9 +231,16 @@ Main content
   .cd-item h2 {
     font-size: 3rem;
   }
+  
   .cd-item p {
     font-size: 1.6rem;
   }
+
+  .cd-item #bio {
+    padding-left: 4%;
+    padding-right: 4%;
+/*    padding: 1em 0;
+*/  }
   .cd-item h2, .cd-item p {
     -webkit-transform: translateY(30px);
     -moz-transform: translateY(30px);

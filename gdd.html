@@ -152,7 +152,7 @@ figcaption {
     <div class="container" id="text">
 
     {% for row in gdd_content %}
-    {% include "%s.html"|format(row.template) ignore missing %}
+    {% include "_%s.html"|format(row.template) ignore missing %}
     {% endfor %}
   </div>
 

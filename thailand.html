@@ -255,7 +255,7 @@ figcaption {
     <div class="container" id="text">
 
     {% for row in thai_content %}
-    {% include "%s.html"|format(row.template) ignore missing %}
+    {% include "_%s.html"|format(row.template) ignore missing %}
     {% endfor %}
   </div>
   <a href="#0" class="cd-top">Top</a>
@@ -275,6 +275,11 @@ figcaption {
 {% block scripts %}
     <script>
    $(document).on('ready',function() {
+    $("#sidebar").hide();
+
+    $("#sidebar_trigger").click(function() {
+      $("#sidebar").toggle();
+    });
 
     $(window).scroll(
     {
@@ -315,11 +320,6 @@ figcaption {
     $(function() {
              cbpFixedScrollLayout.init();
             });
-
-
-    $("#sidebar_trigger").click(function() {
-      $("#sidebar").hide();
-    });
 
 });
 

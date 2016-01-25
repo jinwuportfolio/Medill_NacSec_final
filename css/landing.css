@@ -44,3 +44,11 @@
 li {
      list-style-type: none;
 }
+
+#explore a{
+    color: white;
+}
+
+#explore:hover {
+    font-size: 2em;
+}

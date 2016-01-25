@@ -216,8 +216,8 @@ Hero
 .hero h1 { font-size: 40px; letter-spacing: 3px; margin: 10px; }
 .hero h1 span { color: #a1a9b0; display: inline-block; }
 .hero p { letter-spacing: 1px; }
-.learn-more-btn { background: rgba(61, 201, 179, 1); padding: 20px 40px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px; color: #fff; text-transform: uppercase; letter-spacing: 1px; display: inline-block; -webkit-box-shadow: 0px 3px 0px 0px #309383; -moz-box-shadow: 0px 3px 0px 0px #309383; box-shadow: 0px 3px 0px 0px #309383; margin: 60px 0 0; font-weight: bold; }
-.learn-more-btn:hover, .learn-more-btn:focus { background: rgba(61, 201, 179, 0.6); color: #fff; }
+.learn-more-btn { background: #544173; opacity:0.8;padding: 20px 40px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px; color: #fff; text-transform: uppercase; letter-spacing: 1px; display: inline-block; -webkit-box-shadow: 0px 3px 0px 0px #fff; -moz-box-shadow: 0px 3px 0px 0px #fff; box-shadow: 0px 3px 0px 0px #fff; margin: 60px 0 0; font-weight: bold; }
+.learn-more-btn:hover, .learn-more-btn:focus { background: #544173; opacity:1;color: #fff; }
 /* ==========================================================================
 Intro
 ========================================================================== */
@@ -360,6 +360,7 @@ Waypoints
 .story_introduction > li img {
 	display: block;
 	width: 80%;
+	opacity: 0.8;
 }
 
 .story_introduction > li p {
@@ -367,3 +368,28 @@ Waypoints
     margin-right: 20%;
 }
 
+.story_introduction p{
+	font-weight: bold;
+}
+
+.story_introduction > li:hover {
+	font-size: 1.1em;
+}
+
+.story_introduction > li img:hover {
+	opacity: 1;
+}
+
+
+#explore {
+	margin-top: 5%;
+}
+
+#explore a{
+    color: white;
+}
+
+#explore a:hover {
+    font-size: 1.5em;
+    color: #ff4500;
+}
